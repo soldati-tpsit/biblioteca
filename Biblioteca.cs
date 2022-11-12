@@ -34,5 +34,11 @@ namespace Biblioteca
             if (!_autori.ContainsKey(libro.Autore)) _autori[libro.Autore] = new();
             _autori[libro.Autore].Add(libro);
         }
+
+        public Libro? cercaLibro(string titolo)
+        {
+            if (!_libri.ContainsKey(titolo)) return null;
+            return _libri[titolo];
+        }
     }
 }
