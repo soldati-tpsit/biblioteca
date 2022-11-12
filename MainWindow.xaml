@@ -1,9 +1,9 @@
-﻿<Window x:Class="Biblioteca.MainWindow"
+﻿<Window x:Class="BibliotecaScuola.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Biblioteca"
+        xmlns:local="clr-namespace:BibliotecaScuola"
         mc:Ignorable="d"
         Title="Biblioteca" Height="573" Width="812" ResizeMode="CanMinimize">
     <Grid>
@@ -38,7 +38,7 @@
         <Label Content="Autore" HorizontalAlignment="Left" Margin="300,435,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtAutoreLibroCerca" HorizontalAlignment="Left" Margin="358,439,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnCercaAutore" Content="Cerca" HorizontalAlignment="Left" Margin="528,442,0,0" VerticalAlignment="Top" Click="btnCercaAutore_Click"/>
-        <Button x:Name="btnNumeroLibri" Content="Numero Libri" HorizontalAlignment="Left" Margin="657,420,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnNumeroLibri" Content="Numero Libri" HorizontalAlignment="Left" Margin="657,420,0,0" VerticalAlignment="Top" Click="btnNumeroLibri_Click"/>
 
     </Grid>
 </Window>

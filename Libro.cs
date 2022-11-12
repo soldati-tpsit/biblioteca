@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca
+namespace BibliotecaScuola
 {
     internal class Libro
     {
@@ -32,6 +32,6 @@ namespace Biblioteca
         public int readingTime() => NumeroPagine / 100 + 1;
 
         public string toString() => string.Format("Editore: {1}{0}Autore: {2}{0}Titolo: {3}{0}Anno di pubblicazione: {4}{0}Numero di pagine: {5}{0}",
-            Environment.NewLine, Editore, Titolo, AnnoPubblicazione, NumeroPagine);
+            Environment.NewLine, Editore, Autore, Titolo, AnnoPubblicazione, NumeroPagine);
     }
 }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Biblioteca
+namespace BibliotecaScuola
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -46,24 +46,29 @@ namespace Biblioteca
 
         private void btnAggiungiLibro_Click(object sender, RoutedEventArgs e)
         {
-            checkSelection();
+            if (!checkSelection()) return;
             Libro l = new(txtEditoreLibroIns.Text, txtAutoreLibroIns.Text, txtTitoloLibroIns.Text, int.Parse(txtAnnoLibroIns.Text), int.Parse(txtPagineLibroIns.Text));
             _biblioteche[(string)lstBiblioteche.SelectedItem].aggiungiLibro(l);
         }
 
         private void btnCercaTitolo_Click(object sender, RoutedEventArgs e)
         {
-            checkSelection();
+            if (!checkSelection()) return;
             MessageBox.Show(_biblioteche[(string)lstBiblioteche.SelectedItem].cercaLibro(txtTitoloLibroCerca.Text).toString());
         }
 
         private void btnCercaAutore_Click(object sender, RoutedEventArgs e)
         {
-            checkSelection();
+            if (!checkSelection()) return;
             foreach (Libro l in _biblioteche[(string)lstBiblioteche.SelectedItem].trovaLibriAutore(txtAutoreLibroCerca.Text))
             {
                 MessageBox.Show(l.toString());
             }
+        }
+
+        private void btnNumeroLibri_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(_biblioteche[(string)lstBiblioteche.SelectedItem].NumeroLibri.ToString());
         }
     }
 }
