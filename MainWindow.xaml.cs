@@ -20,9 +20,50 @@ namespace Biblioteca
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Dictionary<string, Biblioteca> _biblioteche = new();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnAggiungiBiblioteca_Click(object sender, RoutedEventArgs e)
+        {
+            Biblioteca b = new(txtNomeBiblioteca.Text, txtIndirizzoBiblioteca.Text, TimeOnly.Parse(txtAperturaBiblioteca.Text), TimeOnly.Parse(txtChiusuraBiblioteca.Text));
+            _biblioteche[b.Nome] = b;
+            lstBiblioteche.Items.Add(b.Nome);
+        }
+
+        private bool checkSelection()
+        {
+            if (lstBiblioteche.SelectedItem == null)
+            {
+                MessageBox.Show("Selezionare una biblioteca!");
+                return false;
+            }
+            return true;
+        }
+
+        private void btnAggiungiLibro_Click(object sender, RoutedEventArgs e)
+        {
+            checkSelection();
+            Libro l = new(txtEditoreLibroIns.Text, txtAutoreLibroIns.Text, txtTitoloLibroIns.Text, int.Parse(txtAnnoLibroIns.Text), int.Parse(txtPagineLibroIns.Text));
+            _biblioteche[(string)lstBiblioteche.SelectedItem].aggiungiLibro(l);
+        }
+
+        private void btnCercaTitolo_Click(object sender, RoutedEventArgs e)
+        {
+            checkSelection();
+            MessageBox.Show(_biblioteche[(string)lstBiblioteche.SelectedItem].cercaLibro(txtTitoloLibroCerca.Text).toString());
+        }
+
+        private void btnCercaAutore_Click(object sender, RoutedEventArgs e)
+        {
+            checkSelection();
+            foreach (Libro l in _biblioteche[(string)lstBiblioteche.SelectedItem].trovaLibriAutore(txtAutoreLibroCerca.Text))
+            {
+                MessageBox.Show(l.toString());
+            }
         }
     }
 }
