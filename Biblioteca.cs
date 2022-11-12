@@ -46,5 +46,7 @@ namespace Biblioteca
             if (!_autori.ContainsKey(autore)) return null;
             return _autori[autore].AsReadOnly();
         }
+
+        public int NumeroLibri { get => _libri.Count; }
     }
 }
