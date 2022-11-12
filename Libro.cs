@@ -28,5 +28,10 @@ namespace Biblioteca
         public string Titolo { get => _titolo; set => _titolo = value; }
         public int AnnoPubblicazione { get => _annoPubblicazione; set => _annoPubblicazione = value; }
         public int NumeroPagine { get => _numeroPagine; set => _numeroPagine = value; }
+
+        public int readingTime() => NumeroPagine / 100 + 1;
+
+        public string toString() => string.Format("Editore: {1}{0}Autore: {2}{0}Titolo: {3}{0}Anno di pubblicazione: {4}{0}Numero di pagine: {5}{0}",
+            Environment.NewLine, Editore, Titolo, AnnoPubblicazione, NumeroPagine);
     }
 }
