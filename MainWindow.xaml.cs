@@ -18,6 +18,7 @@ namespace BibliotecaScuola
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    // Commento bello
     public partial class MainWindow : Window
     {
         private Dictionary<string, Biblioteca> _biblioteche = new();
