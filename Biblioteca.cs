@@ -26,5 +26,13 @@ namespace Biblioteca
         public string Indirizzo { get => _indirizzo; set => _indirizzo = value; }
         public TimeOnly OrarioApertura { get => _orarioApertura; set => _orarioApertura = value; }
         public TimeOnly OrarioChiusura { get => _orarioChiusura; set => _orarioChiusura = value; }
+
+        public void aggiungiLibro(Libro libro)
+        {
+            if (_libri.ContainsKey(libro.Titolo)) throw new ArgumentException("Titolo libro duplicato");
+            _libri[libro.Titolo] = libro;
+            if (!_autori.ContainsKey(libro.Autore)) _autori[libro.Autore] = new();
+            _autori[libro.Autore].Add(libro);
+        }
     }
 }
