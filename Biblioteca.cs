@@ -40,5 +40,11 @@ namespace Biblioteca
             if (!_libri.ContainsKey(titolo)) return null;
             return _libri[titolo];
         }
+
+        public IReadOnlyCollection<Libro>? trovaLibriAutore(string autore)
+        {
+            if (!_autori.ContainsKey(autore)) return null;
+            return _autori[autore].AsReadOnly();
+        }
     }
 }
